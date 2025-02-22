@@ -35,19 +35,25 @@ class NavbarComponent {
   }
 
   async clickCartButton() {
+    await CommonActions.isElementDisplayed(this.#cartButton, {
+      timeout: 6000,
+    });
+
     await CommonActions.click(this.#cartButton);
+    await CommonActions.getWait(3000);
   }
 
   async clickLoginButton() {
     await CommonActions.click(this.#loginButton);
+    await CommonActions.getWait(2000);
   }
 
   async isLoggedUserIdentifierDisplayed() {
-    return await this.#loggedUserIdentifier.isDisplayed();
+    return await CommonActions.isElementDisplayed(this.#loggedUserIdentifier);
   }
 
   async isLogoutButtonDisplayed() {
-    return await this.#logoutButton.isDisplayed();
+    return await CommonActions.isElementDisplayed(this.#logoutButton);
   }
 }
 

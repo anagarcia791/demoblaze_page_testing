@@ -24,10 +24,19 @@ class ShoppingCartPage extends BasePage {
    * Methods
    */
   async getAmountOfProductsInCart() {
-    if (await await this.#productsInCart[0].isDisplayed()) {
+    const productsInCartDisplayed = await CommonActions.isElementDisplayed(
+      this.#productsInCart[0],
+      {
+        timeout: 8000,
+      }
+    );
+
+    if (productsInCartDisplayed) {
       const productsInCart = await this.#productsInCart;
       return productsInCart.length;
     }
+    
+    return 0;
   }
 }
 

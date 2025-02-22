@@ -13,6 +13,14 @@ class CommonActions {
   async sendKeys(elementToFill, value) {
     await elementToFill.setValue(value);
   }
+
+  async isElementDisplayed(element, options = {}) {
+    return await element.isDisplayed(options);
+  }
+
+  async getElementText(element) {
+    return await element.getText();
+  }
 }
 
 export default new CommonActions();

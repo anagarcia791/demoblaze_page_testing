@@ -23,15 +23,18 @@ class LoginComponent {
    * Methods
    */
   async setUsernameInput(valueToSet) {
-    CommonActions.sendKeys(this.#usernameInput, valueToSet);
+    await CommonActions.sendKeys(this.#usernameInput, valueToSet);
+    await CommonActions.getWait(1000);
   }
 
   async setPasswordInput(valueToSet) {
     CommonActions.sendKeys(this.#passwordInput, valueToSet);
+    await CommonActions.getWait(1000);
   }
 
   async clickSubmitLoginButton() {
     await CommonActions.click(this.#submitLoginButton);
+    await CommonActions.getWait(2000);
   }
 }
 

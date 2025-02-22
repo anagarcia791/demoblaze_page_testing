@@ -1,6 +1,5 @@
 import { When, Then } from "@wdio/cucumber-framework";
 import { HomePage } from "../pages/index";
-import { CommonActions } from "../../helpers/index.js";
 import { logger } from "../../utils/logger";
 import assert from "assert";
 
@@ -11,12 +10,10 @@ When("I click login button", async () => {
 When("I enter {string} and {string}", async (username, password) => {
   await HomePage.loginComponent.setUsernameInput(username);
   await HomePage.loginComponent.setPasswordInput(password);
-  await CommonActions.getWait(5000);
 });
 
 When("I click submit login button", async () => {
   await HomePage.loginComponent.clickSubmitLoginButton();
-  await CommonActions.getWait(5000);
 });
 
 Then("I see user with logged in session", async () => {

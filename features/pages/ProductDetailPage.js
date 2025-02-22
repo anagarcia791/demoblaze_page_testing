@@ -20,7 +20,7 @@ class ProductDetailPage extends BasePage {
     return $("h3.price-container");
   }
 
-  get #addToCartButton(){
+  get #addToCartButton() {
     return $(".btn-success");
   }
 
@@ -38,8 +38,10 @@ class ProductDetailPage extends BasePage {
   }
 
   async clickAddToCartButton() {
+    await CommonActions.isElementDisplayed(this.#addToCartButton, {
+      timeout: 5000,
+    });
     await CommonActions.click(this.#addToCartButton);
-    await CommonActions.getWait(3000);
   }
 }
 
