@@ -1,4 +1,4 @@
-import { CommonActions } from "../../helpers/index";
+import { CommonActions, ArraysValidations, Utils } from "../../helpers/index";
 import BasePage from "./BasePage";
 
 /**
@@ -35,8 +35,23 @@ class ShoppingCartPage extends BasePage {
       const productsInCart = await this.#productsInCart;
       return productsInCart.length;
     }
-    
+
     return 0;
+  }
+
+  async checkIfProductMatchesWithAddedPreviously(productTitle, productPrice) {
+    const productsDetail = await this.#productsDetailInCart.map(
+      async (element) => {
+        return await CommonActions.getElementText(element);
+      }
+    );
+
+    productPrice = Utils.extractNumberFromText(productPrice);
+
+    return ArraysValidations.someItemsContains(productsDetail, [
+      productTitle,
+      productPrice.toString(),
+    ]);
   }
 }
 

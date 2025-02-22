@@ -23,4 +23,15 @@ Then("Shopping cart page with one product added is displayed", async () => {
     (await ShoppingCartPage.getAmountOfProductsInCart()) === 1,
     "shopping cart should have one product added"
   );
+
+  const storedProductTitle = await browser.sharedStore.get("productTitle");
+  const storedProductPrice = await browser.sharedStore.get("productPrice");
+
+  assert(
+    await ShoppingCartPage.checkIfProductMatchesWithAddedPreviously(
+      storedProductTitle,
+      storedProductPrice
+    ),
+    "product does not matches with the product selected randomly"
+  );
 });
