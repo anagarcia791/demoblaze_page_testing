@@ -1,6 +1,6 @@
-import { CommonActions } from "../../helpers/index";
+import { CommonActions, Utils } from "../../helpers/index";
 import BasePage from "./BasePage";
-import { LoginComponent } from "./components/index";
+import { NavbarComponent, LoginComponent, CategoriesComponent } from "./components/index";
 
 /**
  * POM for Home Page.
@@ -8,37 +8,28 @@ import { LoginComponent } from "./components/index";
 class HomePage extends BasePage {
   constructor() {
     super(" ");
+    this.navbarComponent = new NavbarComponent();
     this.loginComponent = new LoginComponent();
+    this.categoriesComponent = new CategoriesComponent();
   }
 
   /**
    * Locators
    */
-  get #loginButton() {
-    return $("#login2");
-  }
-
-  get #loggedUserIdentifier() {
-    return $("#nameofuser");
-  }
-
-  get #logoutButton() {
-    return $("#logout2");
+  get #availableProducts() {
+    return $$(".card-title");
   }
 
   /**
    * Methods
    */
-  async clickLoginButton() {
-    await CommonActions.click(this.#loginButton);
-  }
-
-  async isLoggedUserIdentifierDisplayed() {
-    return await this.#loggedUserIdentifier.isDisplayed();
-  }
-
-  async isLogoutButtonDisplayed() {
-    return await this.#logoutButton.isDisplayed();
+  async clickAnyProduct() {
+    if (await this.#availableProducts[0].isDisplayed()) {
+      const productToClick = await this.#availableProducts;
+      const randomPosition = Utils.getRandomNumber(productToClick.length);
+      await CommonActions.click(productToClick[randomPosition-1]);
+    }
+    await CommonActions.getWait(3000);
   }
 }
 

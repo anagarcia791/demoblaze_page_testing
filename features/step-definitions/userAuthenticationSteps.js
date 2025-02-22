@@ -1,16 +1,17 @@
 import { When, Then } from "@wdio/cucumber-framework";
 import { HomePage } from "../pages/index";
 import { CommonActions } from "../../helpers/index.js";
+import { logger } from "../../utils/logger";
 import assert from "assert";
 
 When("I click login button", async () => {
-  await HomePage.clickLoginButton();
+  await HomePage.navbarComponent.clickLoginButton();
 });
 
 When("I enter {string} and {string}", async (username, password) => {
   await HomePage.loginComponent.setUsernameInput(username);
   await HomePage.loginComponent.setPasswordInput(password);
-  await CommonActions.getWait(3000);
+  await CommonActions.getWait(4000);
 });
 
 When("I click submit login button", async () => {
@@ -20,12 +21,14 @@ When("I click submit login button", async () => {
 
 Then("I see user with logged in session", async () => {
   assert(
-    await HomePage.isLoggedUserIdentifierDisplayed(),
+    await HomePage.navbarComponent.isLoggedUserIdentifierDisplayed(),
     "user logged in not displayed"
   );
 
   assert(
-    await HomePage.isLogoutButtonDisplayed(),
+    await HomePage.navbarComponent.isLogoutButtonDisplayed(),
     "logout button not displayed"
   );
+
+  logger.info("Logged in user validated");
 });

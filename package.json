@@ -1,39 +1,39 @@
 {
-    "name": "demoblaze",
-    "version": "1.0.0",
-    "description": "automation for demoblaze page",
-    "type": "module",
-    "main": "index.js",
-    "scripts": {
-      "test": "wdio run ./wdio.conf.js",
-      "chrome-execution": "BROWSER=chrome wdio run ./wdio.conf.js",
-      "firefox-execution": "BROWSER=firefox wdio run ./wdio.conf.js",
-      "chrome-headless-execution": "HEADLESS=true BROWSER=chrome wdio run ./wdio.conf.js",
-      "firefox-headless-execution": "HEADLESS=true BROWSER=firefox wdio run ./wdio.conf.js",
-      "smoke-execution": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@Smoke' and not '@Pending'",
-      "regression-execution": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@Regression' and not '@Pending'",
-      "allure-clean": "rm -r ./allure-results rm -r ./logs"
-    },
-    "keywords": [
-      "wdio",
-      "JS",
-      "TAF",
-      "Cucumber"
-    ],
-    "author": "Ana Margarita Garcia",
-    "license": "ISC",
-    "devDependencies": {
-      "allure-commandline": "^2.30.0",
-      "@wdio/allure-reporter": "^9.1.2",
-      "@wdio/cli": "^9.9.1",
-      "@wdio/cucumber-framework": "^9.9.0",
-      "@wdio/local-runner": "^9.9.1",
-      "@wdio/spec-reporter": "^9.9.0",
-      "chromedriver": "^133.0.1",
-      "geckodriver": "^5.0.0",
-      "wdio-chromedriver-service": "^8.1.1",
-      "wdio-geckodriver-service": "^5.0.2",
-      "winston": "^3.15.0"
-    }
+  "name": "demoblaze",
+  "version": "1.0.0",
+  "description": "automation for demoblaze page",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "wdio run ./wdio.conf.js",
+    "chrome-execution": "BROWSER=chrome wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@ProductsCart'",
+    "firefox-execution": "BROWSER=firefox wdio run ./wdio.conf.js",
+    "chrome-headless-execution": "HEADLESS=true BROWSER=chrome wdio run ./wdio.conf.js",
+    "firefox-headless-execution": "HEADLESS=true BROWSER=firefox wdio run ./wdio.conf.js",
+    "smoke-execution": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@Smoke' and not '@Pending'",
+    "regression-execution": "wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@Regression' and not '@Pending'",
+    "allure-clean": "rm -r ./allure-results rm -r ./logs"
+  },
+  "keywords": [
+    "wdio",
+    "JS",
+    "TAF",
+    "Cucumber"
+  ],
+  "author": "Ana Margarita Garcia",
+  "license": "ISC",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^9.1.2",
+    "@wdio/cli": "^9.9.1",
+    "@wdio/cucumber-framework": "^9.9.0",
+    "@wdio/local-runner": "^9.9.1",
+    "@wdio/spec-reporter": "^9.9.0",
+    "@wdio/shared-store-service": "^9.10.0",
+    "allure-commandline": "^2.30.0",
+    "chromedriver": "^133.0.1",
+    "geckodriver": "^5.0.0",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-geckodriver-service": "^5.0.2",
+    "winston": "^3.15.0"
   }
-  
+}

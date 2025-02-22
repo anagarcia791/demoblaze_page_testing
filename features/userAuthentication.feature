@@ -4,6 +4,7 @@ Feature: User Authentication in Demoblaze Page
   Background:
     Given I am on the Demoblaze page
 
+  @smoke
   Scenario Outline: Login with credentials
     When I click login button
     And I enter "<username>" and "<password>"
