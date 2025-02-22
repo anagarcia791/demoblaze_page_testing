@@ -10,3 +10,4 @@ Feature: User interaction with available products
     And I select any of the available products
     And I add product to the shopping cart
     And I click Cart to see the shopping cart
+    Then Shopping cart page with one product added is displayed

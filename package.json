@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "wdio run ./wdio.conf.js",
-    "chrome-execution": "BROWSER=chrome wdio run ./wdio.conf.js --cucumberOpts.tagExpression='@ProductsCart'",
+    "chrome-execution": "BROWSER=chrome wdio run ./wdio.conf.js",
     "firefox-execution": "BROWSER=firefox wdio run ./wdio.conf.js",
     "chrome-headless-execution": "HEADLESS=true BROWSER=chrome wdio run ./wdio.conf.js",
     "firefox-headless-execution": "HEADLESS=true BROWSER=firefox wdio run ./wdio.conf.js",
