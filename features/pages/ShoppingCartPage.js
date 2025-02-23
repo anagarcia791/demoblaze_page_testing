@@ -1,4 +1,4 @@
-import { CommonActions, ArraysValidations, Utils } from "../../helpers/index";
+import { CommonActions, ArraysValidations, UtilMethods } from "../../helpers/index";
 import BasePage from "./BasePage";
 
 /**
@@ -46,7 +46,7 @@ class ShoppingCartPage extends BasePage {
       }
     );
 
-    productPrice = Utils.extractNumberFromText(productPrice);
+    productPrice = UtilMethods.extractNumberFromText(productPrice);
 
     return ArraysValidations.someItemsContains(productsDetail, [
       productTitle,

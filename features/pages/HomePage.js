@@ -1,4 +1,4 @@
-import { CommonActions, Utils } from "../../helpers/index";
+import { CommonActions, UtilMethods } from "../../helpers/index";
 import BasePage from "./BasePage";
 import {
   NavbarComponent,
@@ -37,7 +37,7 @@ class HomePage extends BasePage {
 
     if (productsDisplayed) {
       const productToClick = await this.#availableProducts;
-      const randomPosition = Utils.getRandomNumber(productToClick.length);
+      const randomPosition = UtilMethods.getRandomNumber(productToClick.length);
       await CommonActions.click(productToClick[randomPosition - 1]);
     }
     

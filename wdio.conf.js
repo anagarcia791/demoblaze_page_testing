@@ -1,5 +1,6 @@
 const browser = process.env.BROWSER || "chrome";
 const headless = process.env.HEADLESS === "true";
+import { takeScreenshot } from "./utils/takeScreenshot.js";
 
 export const config = {
   //
@@ -288,8 +289,9 @@ export const config = {
    * @param {number}             result.duration  duration of scenario in milliseconds
    * @param {object}             context          Cucumber World object
    */
-  // afterStep: function (step, scenario, result, context) {
-  // },
+  afterStep: async function (step, scenario, result, context) {
+    await takeScreenshot();
+  },
   /**
    *
    * Runs after a Cucumber Scenario.

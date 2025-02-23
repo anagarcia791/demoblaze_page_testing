@@ -1,7 +1,7 @@
 /**
  * Class for util methods
  */
-class Utils {
+class UtilMethods {
   getRandomNumber(maxNumber) {
     return Math.floor(Math.random() * maxNumber + 1);
   }
@@ -12,4 +12,4 @@ class Utils {
   }
 }
 
-export default new Utils();
+export default new UtilMethods();
